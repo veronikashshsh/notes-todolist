@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="todostyles.css" />
+
+    <title>Notes</title>
+  </head>
+  <body>
+    <header>
+    <h1>ToDoList</h1>
+    <nav>
+      <a href="todolist.html">To Do List</a>
+       <a href="index.html">Notes</a>
+    </nav>
+
+     <div class="theme-toggle">
+    <label for="themeSwitch">Темна тема</label>
+    <input type="checkbox" id="themeSwitch" />
+  </div>
+
+    </header>
+    <div>
+
+    <div class="container">
+      <form id="noteForm">
+        <h2 class="header2">Add a New Task</h2>
+        <div class="form-group">
+          <label for="noteContent">Task</label>
+          <textarea id="noteContent" rows="5" required></textarea>
+        </div>
+        <label for="chosenSection">Choose a section:</label>
+        <select id="chosenSection">
+          <option value="work">Work</option>
+          <option value="study">Study</option>
+          <option value="home">Home</option>
+        </select>
+
+        <button type="submit" id="addNoteButton">Save Note</button>
+      </form>
+      <hr />
+      <div id="savedNotes">
+        <h2>Your tasks</h2>
+        <nav>
+          <ul class="nav-list">
+            <li><a href="#all">All</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#study">Study</a></li>
+            <li><a href="#home">Home</a></li>
+          </ul>
+        </nav>
+
+        <div id="all">
+          <h3>All Notes</h3>
+          <ul id="notesList-all" class="notesList"></ul>
+        </div>
+
+        <div id="work" style="display: none">
+          <h3>Work</h3>
+          <ul id="notesList-work" class="notesList"></ul>
+        </div>
+
+        <div id="study" style="display: none">
+          <h3>Study</h3>
+          <ul id="notesList-study" class="notesList"></ul>
+        </div>
+
+        <div id="home" style="display: none">
+          <h3>Home</h3>
+          <ul id="notesList-home" class="notesList"></ul>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="todoscript.js"></script>
+  </body>
+</html>

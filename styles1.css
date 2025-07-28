@@ -1,0 +1,364 @@
+:root {
+  --bg-color: #7c87b0;         /* фон шапки */
+  --text-color: #2e2e2e;       /* звичайний текст */
+  --accent-color: #b3c4eb;     /* навігація/акценти */
+  --note-bg: #ffffff;          /* фон нотаток */
+  --body-bg: #eef2f8;          /* загальний фон сайту */
+  --note-border: #9eaac6;      /* лівий бордер нотатки */
+  --header-shadow: rgba(0, 0, 0, 0.05); /* тінь для шапки */
+  --input-bg: #ffffff;
+  --input-border: #d2d9e5;
+  --button-bg: #3e5aa7;
+  --button-hover-bg: #31488f;
+  --nav-link: #4f5d75;         /* спокійний синьо-сірий */
+}
+
+
+body.dark-mode {
+  --bg-color: #1b1f2c;
+  --text-color: #ffffff;
+  --accent-color: #1e2039;
+  --note-bg: #4d567a;
+  --body-bg: #2b2f40;
+  --note-border: #7aa7ff;
+  --header-shadow: rgba(255, 255, 255, 0.1);
+  --input-bg: #2c2f4a;
+  --input-border: #4b4b4b;
+  --button-bg: #3c7be0;
+  --button-hover-bg: #2b60ba;
+  --nav-link: #cdd2d9;
+}
+
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem;
+}
+
+
+/*navigation  */ 
+
+
+header {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 4px 8px var(--header-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--text-color);
+  flex: 1;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--nav-link);
+  background-color: var(--accent-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: var(--button-hover-bg);
+  color: #fff;
+}
+
+/* Перемикач теми */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+#themeSwitch {
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background: #ccc;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#themeSwitch:checked {
+  background: var(--accent-color);
+}
+
+#themeSwitch::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+#themeSwitch:checked::before {
+  transform: translateX(20px);
+}
+
+
+.note-item {
+  width: 350px;
+  background-color: var(--note-bg);
+  padding: 1rem;
+  border-left: 6px solid var(--note-border);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+li {
+  list-style: none;
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 150px;
+    font-size: 1.1rem;
+}
+
+.theme-toggle input[type="checkbox"] {
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background-color: #ccc;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.theme-toggle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 1px;
+  left: 1px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.theme-toggle input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+.theme-toggle input[type="checkbox"]:checked {
+  background-color: var(--accent-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2, h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background-color: var(--note-bg);
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+   border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+
+#addNoteButton {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#addNoteButton:hover {
+  background-color: var(--button-hover-bg);
+}
+
+
+nav .nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 1.5rem 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--nav-link);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-list a:hover {
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+}
+
+
+/* Нотатки */
+.notesList {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.note-item {
+  width: 350px;
+  background-color: var(--accent-color);
+  padding: 1rem;
+  border-left: 6px solid #1e88e5;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+  display: flex;        
+  justify-items: flex-start; 
+  flex-direction: column;  
+  word-wrap: break-word;  
+  overflow-wrap: break-word;
+}
+
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.note-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+   flex-wrap: wrap;
+}
+
+.note-content {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+   flex-wrap: wrap;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #d32f2f;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0;
+}
+
+.delete-btn:hover {
+  color: #b71c1c;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #addNoteButton {
+    width: 100%;
+  }
+
+  .note-item {
+    width: 250px;
+  }
+}
