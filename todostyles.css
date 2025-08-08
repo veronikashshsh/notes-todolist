@@ -319,25 +319,37 @@ nav .nav-list {
 
 .delete-btn {
   position: absolute;
-  top: 60px;
+  top: 45px;
   right: 15px;
   background: none;
   border: none;
   font-size: 1.4rem;
-  color: #d32f2f;
+  color:  var(--button-hover-bg);
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
   padding: 0;
 }
 
 .delete-btn:hover {
-  color: #b71c1c;
+  color: var(--bg-color);
+    transform: scale(1.1);
+}
+
+.delete-btn:active {
+  transform: scale(0.9);
+}
+
+.note-item:hover {
+  background: var(--note-border);
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
 @media (max-width: 600px) {
   body {
-    max-width: 800px;
+    max-width: 600px;
     width: 100%;
   }
 
@@ -352,6 +364,28 @@ nav .nav-list {
   }
 
   .note-item {
-    width: 250px;
+    width: 100px;
+  }
+}
+
+/* Адаптація для половини екрана ноутбука (~1024px і менше) */
+@media (max-width: 1024px) {
+  body {
+    max-width: 1024px;
+    width: 100%;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #addNoteButton {
+    width: 30%/* не на всю ширину, щоб залишити поля */
+  }
+
+  .note-item {
+    width: 300px;
   }
 }

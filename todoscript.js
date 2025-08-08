@@ -13,12 +13,12 @@ function createNoteElement(content, section, date) {
       </div>
       <br>
       <div class="note-content" >${content}</div>
-      <button class="delete-btn" title="Done">&times;</button>
+      <button class="delete-btn" title="Done">&#10004;</button>
     </div>
   `;
 
   noteItem.querySelector(".delete-btn").addEventListener("click", () => {
-    let notes = JSON.parse(localStorage.getItem("notes")) || [];
+    let notes = JSON.parse(localStorage.getItem("todoListData")) || [];
     notes = notes.filter(note => {
       const isSameNote =
         note.content === content &&
@@ -28,7 +28,7 @@ function createNoteElement(content, section, date) {
         return !isSameNote; // Фільтруємо нотатку, яку потрібно видалити
     }
       );
-    localStorage.setItem("notes", JSON.stringify(notes)); 
+    localStorage.setItem("todoListData", JSON.stringify(notes)); 
     noteItem.remove(); // Видаляємо нотатку з DOM
 
     loadNotes(noteItemf); // Оновлюємо список нотаток
@@ -128,12 +128,12 @@ function saveNotes() {
     notes.push({content, section, date }); 
   });
 
-  localStorage.setItem("notes", 
+  localStorage.setItem("todoListData", 
     JSON.stringify(notes)); 
 }
 
 function loadNotes() {
-  const notes = JSON.parse(localStorage.getItem("notes")) || [];
+  const notes = JSON.parse(localStorage.getItem("todoListData")) || [];
 
   notes.forEach(note => {
     const {content, section, date } = note;
